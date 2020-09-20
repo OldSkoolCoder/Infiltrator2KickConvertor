@@ -40,6 +40,7 @@ intLineCounter = 0
 intSpriteCounter = 0
 
 strNewFile += "\n\n\t// Sprite Number : %s " % intSpriteCounter
+strNewFile += "($%s)" % hex(intSpriteCounter)[2:].zfill(2)
 strNewFile += " HexOffset : $%s \n" % hex(intSpriteCounter * 64)[2:].zfill(4)
 
 theByte1 = file.read(1)
@@ -72,6 +73,7 @@ while theByte1:
 
         intSpriteCounter += 1
         strNewFile += "\n\n\t// Sprite Number : %s " % intSpriteCounter
+        strNewFile += "($%s)" % hex(intSpriteCounter)[2:].zfill(2)
         strNewFile += " HexOffset : $%s \n" % hex(intSpriteCounter * 64)[2:].zfill(4)
 
         intLineCounter = 0

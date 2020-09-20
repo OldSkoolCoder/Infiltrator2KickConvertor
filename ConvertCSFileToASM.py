@@ -45,6 +45,7 @@ intLineCounter = 0
 intCharCounter = 0
 
 strNewFile += "\n\n\t// Character Number : %s " % intCharCounter
+strNewFile += "($%s)" % hex(intCharCounter)[2:].zfill(2)
 strNewFile += " HexOffset : $%s \n" % hex(intCharCounter * 8)[2:].zfill(4)
 
 theByte = file.read(1)
@@ -59,6 +60,7 @@ while theByte:
     if intLineCounter == 8:
         intCharCounter += 1
         strNewFile += "\n\n\t// Character Number : %s " % intCharCounter
+        strNewFile += "($%s)" % hex(intCharCounter)[2:].zfill(2)
         strNewFile += " HexOffset : $%s \n" % hex(intCharCounter * 8)[2:].zfill(4)
 
         intLineCounter = 0
