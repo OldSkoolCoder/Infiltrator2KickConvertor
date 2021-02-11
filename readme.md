@@ -218,7 +218,7 @@ in command box or terminal type :
 * *--output* is the output assembly text file of the conversion.
 
 ### ConvertSPRFileToASM.py
-This file will take the binary file created by Infiltrator and convert it into readable assembly Kick formated file 
+This file will take the binary file created by Infiltrator and convert it into readable assembly CPS formatted file 
 E.g.
 ```	; Sprite Number : 0  HexOffset : $0000 
 	byte %00010000, %00000000, %00010010		; ...x.... ........ ...x..x.
@@ -254,7 +254,7 @@ in command box or terminal type :
 * *--output* is the output assembly text file of the conversion.
 
 ### ConvertINFILTRATORFileToASM.py
-This file will take the disassembly text file created by Infiltrator and convert it into readable assembly Kick formated file 
+This file will take the disassembly text file created by Infiltrator and convert it into readable assembly KCPSick formatted file 
 
 **E.g. Before**
 ```//------------------------------
