@@ -57,10 +57,13 @@ while strtheLine:
         strtheLine = "\t" + mid(strtheLine,17,3).lower() + strtheLine.replace(left(strtheLine,20),"")
 
         if mid(strtheLine,1,3) in ["jmp","jsr","bne","beq","bcc","bcs","bvc","bvs","bpl","bmi"]:
-            strtheLine = strtheLine.replace("$","")
+            strtheLine = strtheLine.replace("_($","_")
             strtheLine = strtheLine.replace(") ","_")
             strtheLine = strtheLine.replace(")","")
             strtheLine = strtheLine.replace("(","")
+            
+        elif mid(strtheLine,1,3) in ["asl","rol","lsr","ror"]:
+            strtheLine = strtheLine.replace(" A","")
 
     elif left(strtheLine,2) == "L_":
         strtheLine += ":"
