@@ -254,7 +254,7 @@ in command box or terminal type :
 * *--output* is the output assembly text file of the conversion.
 
 ### ConvertINFILTRATORFileToASM.py
-This file will take the disassembly text file created by Infiltrator and convert it into readable assembly KCPSick formatted file 
+This file will take the disassembly text file created by Infiltrator and convert it into readable assembly CPS formatted file 
 
 **E.g. Before**
 ```//------------------------------
