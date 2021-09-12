@@ -42,6 +42,21 @@ for current_argument, current_value in arguments:
         print (("Enabling input mode (%s)") % (current_value))
         inputfilename = current_value
 
+# text file should be in the format e.g. $D000,SPRX0\n
+# Added By C64Mark
+#-------------------------------------------------------------------
+file = open("IO.map", "r")
+
+IOMap = []
+
+for tmp in file:
+    tmp = tmp.replace("\n","")
+    tmp = tmp.split(",")
+    IOMap.append(tmp)
+
+file.close()
+#-------------------------------------------------------------------
+
 file = open(inputfilename, "r")
 
 strNewFile = ""
@@ -71,7 +86,14 @@ while strtheLine:
         strtheLine = strtheLine.replace(") ","_")
         strtheLine = strtheLine.replace(")","")
         strtheLine = strtheLine.replace("(","")
-    
+
+#-------------------------------------------------------------------
+# Added By C64Mark
+    # based on tuples in IO.txt file
+    for i, o in IOMap:
+        strtheLine = strtheLine.replace(i, o)
+#-------------------------------------------------------------------
+
     strNewFile += strtheLine + "\n"
 
     strtheLine = file.readline()
