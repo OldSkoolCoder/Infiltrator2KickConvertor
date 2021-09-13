@@ -25,6 +25,11 @@ long_options = ["help", "input=", "output="]
 inputfilename = ""
 outputfilename = ""
 
+#-------------------------------------------------------------------
+# Added By C64Mark
+SCREENRAM = 0x4400
+COLOURRAM = 0xD800
+
 try:
     arguments, values = getopt.getopt(argument_list, short_options, long_options)
 except getopt.error as err:
@@ -86,6 +91,26 @@ while strtheLine:
         strtheLine = strtheLine.replace(") ","_")
         strtheLine = strtheLine.replace(")","")
         strtheLine = strtheLine.replace("(","")
+
+#-------------------------------------------------------------------
+# Added By C64Mark
+    if mid(strtheLine,5,1) == "$":
+        tmp = int(mid(strtheLine,6,4), 16)
+        if tmp >= SCREENRAM and tmp <(SCREENRAM+1000):
+            tmp = hex(tmp - SCREENRAM)
+            tmp = right(tmp, len(tmp)-2)
+            tmp = left(strtheLine, 5) + "SCREENRAM+$" + tmp.zfill(3).upper()
+            if mid(strtheLine,10,1) == ",":
+                tmp = tmp + mid(strtheLine,10,2)
+            strtheLine = tmp 
+ 
+        elif tmp >= COLOURRAM and tmp <(COLOURRAM+1000):
+            tmp = hex(tmp - COLOURRAM)
+            tmp = right(tmp, len(tmp)-2)
+            tmp = left(strtheLine, 5) + "COLOURRAM+$" + tmp.zfill(3).upper()
+            if mid(strtheLine,10,1) == ",":
+                tmp = tmp + mid(strtheLine,10,2)
+            strtheLine = tmp       
 
 #-------------------------------------------------------------------
 # Added By C64Mark
