@@ -27,7 +27,7 @@ outputfilename = ""
 
 #-------------------------------------------------------------------
 # Added By C64Mark
-SCREENRAM = 0x4400
+SCREENRAM = 0x0400
 COLOURRAM = 0xD800
 
 try:
