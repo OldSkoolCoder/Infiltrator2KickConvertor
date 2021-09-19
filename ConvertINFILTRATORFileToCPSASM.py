@@ -99,7 +99,7 @@ while strtheLine:
     
 #-------------------------------------------------------------------
 # Added By C64Mark
-    if mid(strtheLine,5,1) == "$":
+    if mid(strtheLine,5,1) == "$" and mid(strtheLine,8,1) != ",":
         tmp = int(mid(strtheLine,6,4), 16)
         if tmp >= SCREENRAM and tmp <(SCREENRAM+1000):
             tmp = hex(tmp - SCREENRAM)
