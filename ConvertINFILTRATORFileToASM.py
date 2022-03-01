@@ -108,7 +108,7 @@ for tmp in file:
 
 file.close()
 #-------------------------------------------------------------------
-strNewFile += strNewFile + "\n\n"
+strNewFile += "\n\n"
 
 file = open(inputfilename, "r")
 
