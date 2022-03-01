@@ -178,10 +178,11 @@ L_JSR_8049_93CC_OK:
 ### How to use
 in command box or terminal type :
 
-**python3 ConvertINFILTRATORFileToASM.py --input=Filename --output=Filename**
+**python3 ConvertINFILTRATORFileToASM.py --model=model --input=Filename --output=Filename**
 
 * *--input* is the input text dissassembly file to convert.
 * *--output* is the output assembly text file of the conversion.
+* *--model* is the computer model to use labels for ["C64","VIC20","VIC203K" and "VIC208K"] **C64 by Default if not specified**
 
 ## CBM Prg Studio (CPS) Conversion Files
 ### ConvertCSFileToCPSASM.py
@@ -357,7 +358,8 @@ L_JSR_8049_93CC_OK:
 ### How to use
 in command box or terminal type :
 
-**python3 ConvertINFILTRATORFileToCPSASM.py --input=Filename --output=Filename**
+**python3 ConvertINFILTRATORFileToCPSASM.py --model=model --input=Filename --output=Filename**
 
 * *--input* is the input text dissassembly file to convert.
 * *--output* is the output assembly text file of the conversion.
+* *--model* is the computer model to use labels for ["C64","VIC20","VIC203K" and "VIC208K"] **C64 by Default if not specified**
