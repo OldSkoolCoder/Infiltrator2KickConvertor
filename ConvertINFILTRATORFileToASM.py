@@ -86,6 +86,9 @@ elif model == "VIC208K":
     SCREENAREA = 0x0200
     ioFile = "VIC"
 
+
+inputfilename = "Skramble_Orginial.txt"
+outputfilename = "Skramble_Kick.txt"
 # text file should be in the format e.g. $D000,SPRX0\n
 # Added By C64Mark
 # Modified by OSK
@@ -134,6 +137,23 @@ while strtheLine:
         strtheLine = strtheLine.replace(") ","_")
         strtheLine = strtheLine.replace(")","")
         strtheLine = strtheLine.replace("(","")
+
+
+    # OSK Added 5th March 2022.
+    # this takes the instruction xxx $0000 or xxx $0000,x or xxx $0000,y
+    # and convert it to kick xxx.abs $0000 or xxx.absx $0000,x or xxx.absy $0000,y
+
+    if mid(strtheLine,5,1) == "$" and mid(strtheLine,8,1) != ",":
+        if mid(strtheLine,1,3) not in ["jmp","jsr"]:
+            location = mid(strtheLine,6,4)
+            if mid(location,2,1) not in [" ",",",""]:
+                if int(location,16) < 256:
+                    ext = ".abs"
+                    if mid(strtheLine,10,1) == ",":
+                        ext += mid(strtheLine,11,1).lower()
+
+                    strtheLine = left(strtheLine,4)+ext+right(strtheLine,(len(strtheLine)-4))
+        
 
 #-------------------------------------------------------------------
 # Added By C64Mark
